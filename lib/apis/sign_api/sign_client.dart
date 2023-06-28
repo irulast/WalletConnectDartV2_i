@@ -4,6 +4,7 @@ import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/i_pairing_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client_models.dart';
+import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
 import 'package:walletconnect_flutter_v2/apis/models/basic_models.dart';
 import 'package:walletconnect_flutter_v2/apis/models/json_rpc_response.dart';
 import 'package:walletconnect_flutter_v2/apis/sign_api/sign_engine.dart';
@@ -70,13 +71,14 @@ class SignClient implements ISignClient {
     required String projectId,
     String relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL,
     required PairingMetadata metadata,
+    IStore<Map<String, dynamic>>? store,
     bool memoryStore = false,
   }) async {
     final client = SignClient(
       core: Core(
         projectId: projectId,
         relayUrl: relayUrl,
-        memoryStore: memoryStore,
+        store: store,
       ),
       metadata: metadata,
     );

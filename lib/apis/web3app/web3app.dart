@@ -4,6 +4,7 @@ import 'package:walletconnect_flutter_v2/apis/auth_api/auth_engine.dart';
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/http_client.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
+import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
 import 'package:walletconnect_flutter_v2/apis/sign_api/i_sessions.dart';
 import 'package:walletconnect_flutter_v2/apis/sign_api/sign_engine.dart';
 import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
@@ -25,7 +26,7 @@ class Web3App implements IWeb3App {
     required String projectId,
     String relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL,
     required PairingMetadata metadata,
-    bool memoryStore = false,
+    IStore<Map<String, dynamic>>? store,
     Level logLevel = Level.nothing,
     HttpWrapper httpClient = const HttpWrapper(),
   }) async {
@@ -33,7 +34,7 @@ class Web3App implements IWeb3App {
       core: Core(
         projectId: projectId,
         relayUrl: relayUrl,
-        memoryStore: memoryStore,
+        store: store,
         logLevel: logLevel,
         httpClient: httpClient,
       ),

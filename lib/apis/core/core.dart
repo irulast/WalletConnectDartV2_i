@@ -70,7 +70,6 @@ class Core implements ICore {
     this.relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL,
     required this.projectId,
     this.pushUrl = WalletConnectConstants.DEFAULT_PUSH_URL,
-    bool memoryStore = false,
     Level logLevel = Level.info,
     IStore<Map<String, dynamic>>? store,
     IHttpClient httpClient = const HttpWrapper(),

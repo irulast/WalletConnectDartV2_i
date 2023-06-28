@@ -11,6 +11,7 @@ import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_http
 import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
 import 'package:walletconnect_flutter_v2/apis/auth_api/models/auth_client_models.dart';
 import 'package:walletconnect_flutter_v2/apis/core/i_core.dart';
+import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
 import 'package:walletconnect_flutter_v2/apis/models/basic_models.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
 import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
@@ -42,7 +43,7 @@ class AuthClientTestWrapper implements IAuthEngine {
     required String projectId,
     String relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL,
     required PairingMetadata metadata,
-    bool memoryStore = false,
+    IStore<Map<String, dynamic>>? store,
     Level logLevel = Level.nothing,
     IHttpClient httpClient = const HttpWrapper(),
   }) async {
@@ -50,8 +51,8 @@ class AuthClientTestWrapper implements IAuthEngine {
       core: Core(
         projectId: projectId,
         relayUrl: relayUrl,
-        memoryStore: memoryStore,
         logLevel: logLevel,
+        store: store,
         httpClient: httpClient,
       ),
       metadata: metadata,

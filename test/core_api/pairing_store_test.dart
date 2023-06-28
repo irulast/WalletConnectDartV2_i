@@ -30,13 +30,11 @@ void main() {
       coreA = Core(
         relayUrl: TEST_RELAY_URL,
         projectId: TEST_PROJECT_ID,
-        memoryStore: true,
         httpClient: getHttpWrapper(),
       );
       coreB = Core(
         relayUrl: TEST_RELAY_URL,
         projectId: TEST_PROJECT_ID,
-        memoryStore: true,
         httpClient: getHttpWrapper(),
       );
       await coreA.start();
