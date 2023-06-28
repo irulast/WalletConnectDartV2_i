@@ -16,7 +16,6 @@ import '../shared/shared_test_utils.dart';
 import '../shared/shared_test_values.dart';
 
 void main() {
-
   test('Format and parses URI correctly', () {
     Uri response = WalletConnectUtils.formatUri(
         protocol: 'wc',
@@ -98,13 +97,11 @@ void main() {
       coreA = Core(
         relayUrl: TEST_RELAY_URL,
         projectId: TEST_PROJECT_ID,
-        memoryStore: true,
         httpClient: getHttpWrapper(),
       );
       coreB = Core(
         relayUrl: TEST_RELAY_URL,
         projectId: TEST_PROJECT_ID,
-        memoryStore: true,
         httpClient: getHttpWrapper(),
       );
       await coreA.start();
@@ -321,7 +318,6 @@ void main() {
         coreA = Core(
           relayUrl: TEST_RELAY_URL,
           projectId: TEST_PROJECT_ID,
-          memoryStore: true,
           httpClient: getHttpWrapper(),
         );
         await coreA.start();

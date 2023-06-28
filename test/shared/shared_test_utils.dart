@@ -31,7 +31,7 @@ ICrypto getCrypto({
   ICore? core,
   MockCryptoUtils? utils,
 }) {
-  final ICore _core = core ?? Core(projectId: '', memoryStore: true);
+  final ICore _core = core ?? Core(projectId: '');
   final ICrypto crypto = Crypto(
     core: _core,
     keyChain: GenericStore<String>(
@@ -49,7 +49,7 @@ ICrypto getCrypto({
 IMessageTracker getMessageTracker({
   ICore? core,
 }) {
-  final ICore _core = core ?? Core(projectId: '', memoryStore: true);
+  final ICore _core = core ?? Core(projectId: '');
   return MessageTracker(
     storage: _core.storage,
     context: StoreVersions.CONTEXT_MESSAGE_TRACKER,
@@ -61,7 +61,7 @@ IMessageTracker getMessageTracker({
 IGenericStore<String> getTopicMap({
   ICore? core,
 }) {
-  final ICore _core = core ?? Core(projectId: '', memoryStore: true);
+  final ICore _core = core ?? Core(projectId: '');
   return GenericStore<String>(
     storage: _core.storage,
     context: StoreVersions.CONTEXT_TOPIC_MAP,

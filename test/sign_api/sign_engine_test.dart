@@ -14,7 +14,6 @@ void main() {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        memoryStore: true,
         logLevel: Level.info,
         httpClient: getHttpWrapper(),
       );
@@ -55,7 +54,6 @@ void main() {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        memoryStore: true,
         logLevel: Level.info,
         httpClient: getHttpWrapper(),
       );

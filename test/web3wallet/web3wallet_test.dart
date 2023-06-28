@@ -13,7 +13,6 @@ void main() {
     (PairingMetadata metadata) async => await Web3App.createInstance(
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
-          memoryStore: true,
           metadata: metadata,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),
@@ -23,7 +22,6 @@ void main() {
     (PairingMetadata metadata) async => await Web3Wallet.createInstance(
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
-          memoryStore: true,
           metadata: metadata,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),

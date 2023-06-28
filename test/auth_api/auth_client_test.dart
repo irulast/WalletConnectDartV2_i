@@ -17,7 +17,6 @@ import 'utils/engine_constants.dart';
 import 'utils/signature_constants.dart';
 
 void main() {
-
   final List<Future<IAuthEngineApp> Function(PairingMetadata)> authAppCreators =
       [
     (PairingMetadata metadata) async =>
@@ -25,7 +24,6 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          memoryStore: true,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),
         ),
@@ -33,7 +31,6 @@ void main() {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        memoryStore: true,
         logLevel: Level.info,
         httpClient: getHttpWrapper(),
       );
@@ -83,7 +80,6 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          memoryStore: true,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),
         ),
@@ -95,7 +91,6 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          memoryStore: true,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),
         ),
@@ -103,7 +98,6 @@ void main() {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        memoryStore: true,
         logLevel: Level.info,
         httpClient: getHttpWrapper(),
       );
@@ -152,7 +146,6 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          memoryStore: true,
           logLevel: Level.info,
           httpClient: getHttpWrapper(),
         ),
@@ -374,8 +367,6 @@ void runTests({
 
         Completer completerA = Completer();
         clientB.onAuthRequest.subscribe((AuthRequest? args) async {
-          // print('got here');
-          // print(clientB.getPendingAuthRequests().length);
           completerA.complete();
         });
 

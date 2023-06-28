@@ -30,7 +30,6 @@ void main() {
       );
       final ICore core = Core(
         projectId: 'abc',
-        memoryStore: true,
         httpClient: http,
       );
 
@@ -60,12 +59,10 @@ void main() {
   test('Relay client connect and disconnect events broadcast', () async {
     ICore coreA = Core(
       projectId: TEST_PROJECT_ID,
-      memoryStore: true,
       httpClient: getHttpWrapper(),
     );
     ICore coreB = Core(
       projectId: TEST_PROJECT_ID,
-      memoryStore: true,
       httpClient: getHttpWrapper(),
     );
 
@@ -117,7 +114,6 @@ void main() {
   group('Relay Client', () {
     ICore core = Core(
       projectId: TEST_PROJECT_ID,
-      memoryStore: true,
       httpClient: getHttpWrapper(),
     );
     late RelayClient relayClient;
@@ -176,13 +172,11 @@ void main() {
         coreA = Core(
           relayUrl: TEST_RELAY_URL,
           projectId: TEST_PROJECT_ID,
-          memoryStore: true,
           httpClient: getHttpWrapper(),
         );
         coreB = Core(
           relayUrl: TEST_RELAY_URL,
           projectId: TEST_PROJECT_ID,
-          memoryStore: true,
           httpClient: getHttpWrapper(),
         );
         await coreA.start();
