@@ -392,7 +392,6 @@ class SignEngine implements ISignEngine {
           ),
         );
       } catch (_) {
-        // print('got here');
       }
     }
     await _deleteProposal(id);

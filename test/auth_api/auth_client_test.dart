@@ -367,8 +367,6 @@ void runTests({
 
         Completer completerA = Completer();
         clientB.onAuthRequest.subscribe((AuthRequest? args) async {
-          // print('got here');
-          // print(clientB.getPendingAuthRequests().length);
           completerA.complete();
         });
 
