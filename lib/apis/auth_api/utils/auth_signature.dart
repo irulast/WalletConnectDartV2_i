@@ -7,7 +7,6 @@ import 'package:pointycastle/digests/keccak.dart';
 import 'package:walletconnect_flutter_v2/apis/auth_api/models/auth_client_models.dart';
 import 'package:walletconnect_flutter_v2/apis/auth_api/utils/auth_constants.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/json_rpc_utils.dart';
-import 'package:web3dart/crypto.dart' as crypto;
 
 class AuthSignature {
   static final KeccakDigest keccakDigest = KeccakDigest(256);
