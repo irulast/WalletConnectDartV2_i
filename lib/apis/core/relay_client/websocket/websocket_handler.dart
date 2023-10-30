@@ -106,8 +106,7 @@ class WebSocketHandler implements IWebSocketHandler {
 
       throw WalletConnectError(
         code: 400,
-        message:
-            'WebSocket connection failed, this could be: 1. Missing project id, 2. Invalid project id, 3. Too many requests',
+        message: 'WebSocket connection failed: ${e.toString()}',
       );
     }
   }
