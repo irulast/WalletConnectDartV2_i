@@ -199,7 +199,7 @@ class AuthEngine implements IAuthEngine {
 
     final String reconstructed = formatAuthMessage(
       iss: payload.iss,
-      cacaoPayload: payload,
+      cacaoPayload: CacaoRequestPayload.fromCacaoPayload(payload),
     );
 
     final String walletAddress = AddressUtils.getDidAddress(payload.iss);
@@ -230,7 +230,7 @@ class AuthEngine implements IAuthEngine {
       final resp = AuthResponse(
         id: id,
         topic: responseTopic,
-        error: WalletConnectError(
+        error: const WalletConnectError(
           code: -1,
           message: 'Invalid signature',
         ),
@@ -287,7 +287,7 @@ class AuthEngine implements IAuthEngine {
       );
     } else {
       final Cacao cacao = Cacao(
-        h: CacaoHeader(),
+        h: const CacaoHeader(),
         p: CacaoPayload.fromRequestPayload(
           issuer: iss,
           payload: pendingRequest.cacaoPayload,

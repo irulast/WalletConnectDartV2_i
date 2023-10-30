@@ -13,7 +13,7 @@ void main() {
       projectId: TEST_PROJECT_ID,
       relayUrl: TEST_RELAY_URL,
       metadata: metadata,
-      logLevel: Level.info,
+      logLevel: LogLevel.info,
       httpClient: getHttpWrapper(),
     ),
     clientBCreator: (PairingMetadata metadata) async =>
@@ -21,7 +21,7 @@ void main() {
       projectId: TEST_PROJECT_ID,
       relayUrl: TEST_RELAY_URL,
       metadata: metadata,
-      logLevel: Level.info,
+      logLevel: LogLevel.info,
       httpClient: getHttpWrapper(),
     ),
   );

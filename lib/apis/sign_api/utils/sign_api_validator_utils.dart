@@ -8,8 +8,11 @@ class SignApiValidatorUtils {
     required List<dynamic> container,
     required List<dynamic> contained,
   }) {
-    List<dynamic> matches =
-        contained.where((x) => container.contains(x)).toList();
+    List<dynamic> matches = contained
+        .where(
+          (x) => container.contains(x),
+        )
+        .toList();
     return matches.length == contained.length;
   }
 
@@ -250,19 +253,19 @@ class SignApiValidatorUtils {
           throw Errors.getSdkError(
             Errors.UNSUPPORTED_CHAINS,
             context:
-                "$context namespaces chains don't satisfy requiredNamespaces chains for $key",
+                "$context namespaces chains don't satisfy requiredNamespaces chains for $key. Requested: $requiredNamespaceChains, Supported: $namespaceChains",
           );
         } else if (!methodsOverlap) {
           throw Errors.getSdkError(
             Errors.UNSUPPORTED_METHODS,
             context:
-                "$context namespaces methods don't satisfy requiredNamespaces methods for $key",
+                "$context namespaces methods don't satisfy requiredNamespaces methods for $key. Requested: ${requiredNamespaces[key]!.methods}, Supported: ${namespaces[key]!.methods}",
           );
         } else if (!eventsOverlap) {
           throw Errors.getSdkError(
             Errors.UNSUPPORTED_EVENTS,
             context:
-                "$context namespaces events don't satisfy requiredNamespaces events for $key",
+                "$context namespaces events don't satisfy requiredNamespaces events for $key. Requested: ${requiredNamespaces[key]!.events}, Supported: ${namespaces[key]!.events}",
           );
         }
       }
