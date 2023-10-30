@@ -15,6 +15,11 @@ class WalletConnectUtils {
         0;
   }
 
+  static DateTime expiryToDateTime(int expiry) {
+    final milliseconds = expiry * 1000;
+    return DateTime.fromMillisecondsSinceEpoch(milliseconds);
+  }
+
   static int toMilliseconds(int seconds) {
     return seconds * 1000;
   }
@@ -66,19 +71,17 @@ class WalletConnectUtils {
     required String sdkVersion,
     required String auth,
     String? projectId,
+    String? packageName,
   }) {
     final Uri uri = Uri.parse(relayUrl);
     final Map<String, String> queryParams = Uri.splitQueryString(uri.query);
-    String ua = formatUA(
-      protocol,
-      version,
-      sdkVersion,
-    );
+    String ua = formatUA(protocol, version, sdkVersion);
 
     final Map<String, String> relayParams = {
       'auth': auth,
-      if (projectId != null && projectId.isNotEmpty) 'projectId': projectId,
+      if ((projectId ?? '').isNotEmpty) 'projectId': projectId!,
       'ua': ua,
+      if ((packageName ?? '').isNotEmpty) 'origin': packageName!,
     };
     queryParams.addAll(relayParams);
     return uri.replace(queryParameters: queryParams).toString();
@@ -91,20 +94,15 @@ class WalletConnectUtils {
     String path = uri.path;
     final List<String> splitParams = path.split('@');
     if (splitParams.length == 1) {
-      throw WalletConnectError(
+      throw const WalletConnectError(
         code: 0,
         message: 'Invalid URI: Missing @',
       );
     }
     List<String> methods = (uri.queryParameters['methods'] ?? '')
         // Replace all the square brackets with empty string, split by comma
-        .replaceAll(
-          RegExp(r'[\[\]"]+'),
-          '',
-        )
-        .split(
-          ',',
-        );
+        .replaceAll(RegExp(r'[\[\]"]+'), '')
+        .split(',');
     if (methods.length == 1 && methods[0].isEmpty) {
       methods = [];
     }

@@ -4,6 +4,8 @@ import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto.dart';
 import 'package:walletconnect_flutter_v2/apis/core/echo/echo.dart';
 import 'package:walletconnect_flutter_v2/apis/core/echo/echo_client.dart';
 import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo.dart';
+import 'package:walletconnect_flutter_v2/apis/core/heartbit/heartbeat.dart';
+import 'package:walletconnect_flutter_v2/apis/core/heartbit/i_heartbeat.dart';
 import 'package:walletconnect_flutter_v2/apis/core/i_core.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/expirer.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/i_expirer.dart';
@@ -15,12 +17,14 @@ import 'package:walletconnect_flutter_v2/apis/core/relay_client/message_tracker.
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client.dart';
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/http_client.dart';
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_http_client.dart';
+import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_websocket_handler.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
 import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_relay_client.dart';
 import 'package:walletconnect_flutter_v2/apis/core/pairing/i_pairing.dart';
 import 'package:walletconnect_flutter_v2/apis/core/store/memory_store.dart';
 import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
+import 'package:walletconnect_flutter_v2/apis/utils/log_level.dart';
 import 'package:walletconnect_flutter_v2/apis/utils/walletconnect_utils.dart';
 
 class Core implements ICore {
@@ -30,7 +34,7 @@ class Core implements ICore {
   String get version => '2';
 
   @override
-  final String relayUrl;
+  String relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL;
 
   @override
   final String projectId;
@@ -47,9 +51,6 @@ class Core implements ICore {
   @override
   late IExpirer expirer;
 
-  // @override
-  // late IJsonRpcHistory history;
-
   @override
   late IPairing pairing;
 
@@ -57,11 +58,14 @@ class Core implements ICore {
   late IEcho echo;
 
   @override
-  final Logger logger = Logger(
-    printer: PrettyPrinter(
-      methodCount: 25,
-    ),
+  late IHeartBeat heartbeat;
+
+  Logger _logger = Logger(
+    level: Level.off,
+    printer: PrettyPrinter(),
   );
+  @override
+  Logger get logger => _logger;
 
   @override
   late IStore<Map<String, dynamic>> storage;
@@ -70,11 +74,16 @@ class Core implements ICore {
     this.relayUrl = WalletConnectConstants.DEFAULT_RELAY_URL,
     required this.projectId,
     this.pushUrl = WalletConnectConstants.DEFAULT_PUSH_URL,
-    Level logLevel = Level.info,
+    LogLevel logLevel = LogLevel.nothing,
     IStore<Map<String, dynamic>>? store,
     IHttpClient httpClient = const HttpWrapper(),
+    IWebSocketHandler? webSocketHandler,
   }) {
-    Logger.level = logLevel;
+    _logger = Logger(
+      level: logLevel.toLevel(),
+      printer: PrettyPrinter(),
+    );
+    heartbeat = HeartBeat();
     storage = store ?? MemoryStore();
     crypto = Crypto(
       core: this,
@@ -101,7 +110,7 @@ class Core implements ICore {
         version: StoreVersions.VERSION_TOPIC_MAP,
         fromJson: (dynamic value) => value as String,
       ),
-      httpClient: httpClient,
+      socketHandler: webSocketHandler,
     );
     expirer = Expirer(
       storage: storage,
@@ -147,7 +156,7 @@ class Core implements ICore {
     await crypto.init();
     await relayClient.init();
     await expirer.init();
-    // await history.init();
     await pairing.init();
+    heartbeat.init();
   }
 }

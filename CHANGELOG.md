@@ -1,3 +1,69 @@
+## 2.1.8
+
+- Minor changes.
+
+## 2.1.5
+
+- Added a core heartbeat to check and expire on pairing and sessions.
+
+## 2.1.4
+
+- Core defaults to `Logger.level = Level.nothing` to prevent logs from being printed by default
+- Resolved errors with pairings and sessions trying to subscribe even when the relay wasn't connected
+- Additional bugs resolved
+
+## 2.1.3
+
+- Relay Client no longer throws errors on init
+
+## 2.1.2
+
+- No internet connection/invalid URL errors will no longer throw, but the relay's `onRelayClientError` will emit them.
+- Oher relay client bug fixes
+
+## 2.1.1
+
+- Fixed issue with relayUrl not being used correctly
+- Updated false positive tests for relayUrl and added additional ones to ensure relayUrl is used correctly
+
+## 2.1.0
+
+- Added IWebSocketHandler input to core for testing purposes
+- No internet connection/invalid URL errors now throw a WalletConnectError
+- .org fallback is used if the relay URL fails
+
+## 2.0.16
+
+- Updated error logs to be more descriptive
+
+## 2.0.15
+
+- Added 1002 and 1005 to relay auto-reconnect
+
+## 2.0.14
+
+- Fixed regression of optionalNamespaces not being nullable
+
+## 2.0.13
+
+- Made message in json response nullable to resolve issues with rejection messages
+- Updated readme, added events to RequiredNamespace
+- Swapped to `freezed` for all models
+- Resolved issue with non-null resources for auth throwing errors
+
+## 2.0.12
+
+- Fixed regression with default relay URL, added tests to ensure it doesn't happen again
+
+## 2.0.11
+
+- Updated relay client's error messages to be accurate and descriptive.
+
+## 2.0.10
+
+- Added logger level where missing
+- Updated the `NamespaceUtils` and `SignApiValidatorUtils` to follow [CAIP-217](https://chainagnostic.org/CAIPs/caip-217)
+
 ## 2.0.9
 
 - Fixed issue with hanging websocket connection (Missing session)

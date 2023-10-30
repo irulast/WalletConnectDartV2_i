@@ -16,7 +16,6 @@ import '../shared/shared_test_utils.dart';
 import '../shared/shared_test_values.dart';
 
 void main() {
-
   group('Pairing store', () {
     late ICore coreA;
     late ICore coreB;
@@ -78,7 +77,7 @@ void main() {
         await history.init();
         await history.set(
           '1',
-          JsonRpcRecord(
+          const JsonRpcRecord(
             id: 1,
             topic: '1',
             method: 'eth_sign',
@@ -87,7 +86,7 @@ void main() {
         );
         await history.set(
           '2',
-          JsonRpcRecord(
+          const JsonRpcRecord(
             id: 2,
             topic: '1',
             method: 'eth_sign',
@@ -110,7 +109,7 @@ void main() {
         await topicToReceiverPublicKey.init();
         await topicToReceiverPublicKey.set(
           'abc',
-          ReceiverPublicKey(
+          const ReceiverPublicKey(
             topic: 'abc',
             publicKey: 'def',
             expiry: -1,

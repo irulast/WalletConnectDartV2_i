@@ -24,14 +24,14 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          logLevel: Level.info,
+          logLevel: LogLevel.info,
           httpClient: getHttpWrapper(),
         ),
     (PairingMetadata? self) async {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        logLevel: Level.info,
+        logLevel: LogLevel.info,
         httpClient: getHttpWrapper(),
       );
       IAuthEngine e = AuthEngine(
@@ -80,7 +80,7 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          logLevel: Level.info,
+          logLevel: LogLevel.info,
           httpClient: getHttpWrapper(),
         ),
   ];
@@ -91,14 +91,14 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          logLevel: Level.info,
+          logLevel: LogLevel.info,
           httpClient: getHttpWrapper(),
         ),
     (PairingMetadata metadata) async {
       final core = Core(
         projectId: TEST_PROJECT_ID,
         relayUrl: TEST_RELAY_URL,
-        logLevel: Level.info,
+        logLevel: LogLevel.info,
         httpClient: getHttpWrapper(),
       );
       IAuthEngine e = AuthEngine(
@@ -146,7 +146,7 @@ void main() {
           projectId: TEST_PROJECT_ID,
           relayUrl: TEST_RELAY_URL,
           metadata: metadata,
-          logLevel: Level.info,
+          logLevel: LogLevel.info,
           httpClient: getHttpWrapper(),
         ),
   ];
@@ -223,6 +223,8 @@ void runTests({
         clientA.onAuthResponse.subscribe((AuthResponse? args) {
           counterA++;
           completerA.complete();
+
+          expect(args!.result, isNotNull);
         });
         clientB.onAuthRequest.subscribe((AuthRequest? args) async {
           counterB++;
@@ -466,7 +468,7 @@ void runTests({
       test('works', () {
         final String message = clientA.formatAuthMessage(
           iss: TEST_ISSUER_EIP191,
-          cacaoPayload: testCacaoPayload,
+          cacaoPayload: CacaoRequestPayload.fromCacaoPayload(testCacaoPayload),
         );
         expect(message, TEST_FORMATTED_MESSAGE);
       });

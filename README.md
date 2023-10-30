@@ -33,10 +33,12 @@ ConnectResponse resp = await wcClient.connect(
     'eip155': RequiredNamespace(
       chains: ['eip155:1'], // Ethereum chain
       methods: ['eth_signTransaction'], // Requestable Methods
+      events: ['eth_sendTransaction'], // Requestable Events
     ),
     'kadena': RequiredNamespace(
       chains: ['kadena:mainnet01'], // Kadena chain
       methods: ['kadena_quicksign_v1'], // Requestable Methods
+      events: ['kadena_transaction_updated'], // Requestable Events
     ),
   }
 );
@@ -118,7 +120,7 @@ wcClient.onSessionProposal.subscribe((SessionProposal? args) async {
 });
 
 // Also setup the methods and chains that your wallet supports
-final kadenaSignV1RequestHandler = (String topic, dynamic parameters) async {
+final signRequestHandler = (String topic, dynamic parameters) async {
   // Handling Steps
   // 1. Parse the request, if there are any errors thrown while trying to parse
   // the client will automatically respond to the requester with a
@@ -157,7 +159,7 @@ final kadenaSignV1RequestHandler = (String topic, dynamic parameters) async {
 
   // 3. Respond to the dApp based on user response
   if (userApproved) {
-    // Returned value must by a primitive, or a JSON serializable object: Map, List, etc.
+    // Returned value must be a primitive, or a JSON serializable object: Map, List, etc.
     return 'Signed!';
   }
   else {
@@ -166,10 +168,27 @@ final kadenaSignV1RequestHandler = (String topic, dynamic parameters) async {
   }
 }
 wcClient.registerRequestHandler(
-  chainId: 'kadena:mainnet01',
-  method: 'kadena_sign_v1',
-  handler: kadenaSignV1RequestHandler,
+  chainId: 'eip155:1',
+  method: 'eth_sendTransaction',
+  handler: signRequestHandler,
 );
+
+// If you want to the library to handle Namespace validation automatically, 
+// you can register your events and accounts like so:
+wcClient.registerEventEmitter(
+  chainId: 'eip155:1',
+  event: 'chainChanged',
+);
+wcClient.registerAccount(
+  chainId: 'eip155:1',
+  account: '0xabc',
+);
+
+// If your wallet receives a session proposal that it can't make the proper Namespaces for,
+// it will broadcast an onSessionProposalError
+wcClient.onSessionProposalError.subscribe((SessionProposalError? args) {
+  // Handle the error
+});
 
 // Setup the auth handling
 clientB.onAuthRequest.subscribe((AuthRequest? args) async {

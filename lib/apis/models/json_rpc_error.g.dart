@@ -6,13 +6,22 @@ part of 'json_rpc_error.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-JsonRpcError _$JsonRpcErrorFromJson(Map<String, dynamic> json) => JsonRpcError(
-      code: json['code'] as int,
-      message: json['message'] as String,
+_$_JsonRpcError _$$_JsonRpcErrorFromJson(Map<String, dynamic> json) =>
+    _$_JsonRpcError(
+      code: json['code'] as int?,
+      message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$JsonRpcErrorToJson(JsonRpcError instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      'message': instance.message,
-    };
+Map<String, dynamic> _$$_JsonRpcErrorToJson(_$_JsonRpcError instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('code', instance.code);
+  writeNotNull('message', instance.message);
+  return val;
+}

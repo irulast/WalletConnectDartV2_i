@@ -104,6 +104,13 @@ class SignEngine implements ISignEngine {
   }
 
   @override
+  Future<void> checkAndExpire() async {
+    for (var session in sessions.getAll()) {
+      await core.expirer.checkAndExpire(session.topic);
+    }
+  }
+
+  @override
   Future<ConnectResponse> connect({
     Map<String, RequiredNamespace>? requiredNamespaces,
     Map<String, RequiredNamespace>? optionalNamespaces,
@@ -277,10 +284,6 @@ class SignEngine implements ISignEngine {
       relayProtocol ?? 'irn',
     );
 
-    final int expiry = WalletConnectUtils.calculateExpiry(
-      WalletConnectConstants.SEVEN_DAYS,
-    );
-
     // Respond to the proposal
     await core.pairing.sendResult(
       id,
@@ -302,6 +305,10 @@ class SignEngine implements ISignEngine {
     );
 
     await core.relayClient.subscribe(topic: sessionTopic);
+
+    final int expiry = WalletConnectUtils.calculateExpiry(
+      WalletConnectConstants.SEVEN_DAYS,
+    );
 
     SessionData session = SessionData(
       topic: sessionTopic,
@@ -353,7 +360,9 @@ class SignEngine implements ISignEngine {
       },
     );
 
-    session.acknowledged = acknowledged;
+    session = session.copyWith(
+      acknowledged: acknowledged,
+    );
 
     if (acknowledged && sessions.has(sessionTopic)) {
       // We directly update the latest value.
@@ -563,25 +572,33 @@ class SignEngine implements ISignEngine {
     required WalletConnectError reason,
   }) async {
     _checkInitialized();
-    await _isValidDisconnect(topic);
+    try {
+      await _isValidDisconnect(topic);
 
-    if (sessions.has(topic)) {
-      // Send the request to delete the session, we don't care if it fails
-      try {
-        core.pairing.sendRequest(
-          topic,
-          MethodConstants.WC_SESSION_DELETE,
-          WcSessionDeleteRequest(
-            code: reason.code,
-            message: reason.message,
-            data: reason.data,
-          ),
-        );
-      } catch (_) {}
+      if (sessions.has(topic)) {
+        // Send the request to delete the session, we don't care if it fails
+        try {
+          core.pairing.sendRequest(
+            topic,
+            MethodConstants.WC_SESSION_DELETE,
+            WcSessionDeleteRequest(
+              code: reason.code,
+              message: reason.message,
+              data: reason.data,
+            ),
+          );
+        } catch (_) {}
 
-      await _deleteSession(topic);
-    } else {
-      await core.pairing.disconnect(topic: topic);
+        await _deleteSession(topic);
+      } else {
+        await core.pairing.disconnect(topic: topic);
+      }
+    } on WalletConnectError catch (error, s) {
+      core.logger.e(
+        '[$runtimeType] disconnectSession()',
+        error: error,
+        stackTrace: s,
+      );
     }
   }
 
@@ -704,6 +721,11 @@ class SignEngine implements ISignEngine {
   /// ---- PRIVATE HELPERS ---- ////
 
   Future<void> _resubscribeAll() async {
+    // If the relay is not connected, stop here
+    if (!core.relayClient.isConnected) {
+      return;
+    }
+
     // Subscribe to all the sessions
     for (final SessionData session in sessions.getAll()) {
       // print('Session: subscribing to ${session.topic}');
@@ -866,7 +888,7 @@ class SignEngine implements ISignEngine {
     JsonRpcRequest payload,
   ) async {
     try {
-      core.logger.v(
+      core.logger.t(
         '_onSessionProposeRequest, topic: $topic, payload: $payload',
       );
       final proposeRequest = WcSessionProposeRequest.fromJson(payload.params);
@@ -898,7 +920,7 @@ class SignEngine implements ISignEngine {
           );
         } on WalletConnectError catch (err) {
           // If they aren't, send an error
-          core.logger.v(
+          core.logger.t(
             '_onSessionProposeRequest WalletConnectError: $err',
           );
           await core.pairing.sendError(
@@ -995,7 +1017,10 @@ class SignEngine implements ISignEngine {
         topic: sProposalCompleter.pairingTopic,
         metadata: request.controller.metadata,
       );
-      await core.pairing.activate(topic: topic);
+      final pairing = core.pairing.getPairing(topic: topic);
+      if (pairing != null && !pairing.active) {
+        await core.pairing.activate(topic: topic);
+      }
 
       // Send the session back to the completer
       sProposalCompleter.completer.complete(session);
@@ -1339,6 +1364,7 @@ class SignEngine implements ISignEngine {
     core.expirer.onExpire.subscribe(_onExpired);
     core.pairing.onPairingDelete.subscribe(_onPairingDelete);
     core.pairing.onPairingExpire.subscribe(_onPairingDelete);
+    core.heartbeat.onPulse.subscribe(_heartbeatSubscription);
   }
 
   Future<void> _onRelayConnect(EventArgs? args) async {
@@ -1411,6 +1437,11 @@ class SignEngine implements ISignEngine {
       );
       return;
     }
+  }
+
+  void _heartbeatSubscription(EventArgs? args) async {
+    core.logger.i('SignEngine heartbeat received');
+    await checkAndExpire();
   }
 
   /// ---- Validation Helpers ---- ///
@@ -1665,9 +1696,7 @@ class SignEngine implements ISignEngine {
     return true;
   }
 
-  Future<bool> _isValidDisconnect(
-    String topic,
-  ) async {
+  Future<bool> _isValidDisconnect(String topic) async {
     await _isValidSessionOrPairingTopic(topic);
 
     return true;
