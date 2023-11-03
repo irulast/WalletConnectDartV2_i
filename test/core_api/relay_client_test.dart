@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:walletconnect_dart_v2_i/apis/core/core.dart';
-import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart';
-import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/pairing_models.dart';
 import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client.dart';
 import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 

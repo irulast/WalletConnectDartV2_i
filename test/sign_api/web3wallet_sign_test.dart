@@ -1,4 +1,3 @@
-import 'package:logger/logger.dart';
 import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 import '../shared/shared_test_utils.dart';

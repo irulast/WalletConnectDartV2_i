@@ -56,7 +56,7 @@ void main() {
       final echo = Echo(core: core, echoClient: echoClient);
       await expectLater(
         echo.register(testFcmToken),
-        throwsA(isInstanceOf<ArgumentError>()),
+        throwsA(isA<ArgumentError>()),
       );
 
       verify(core.projectId).called(1);
@@ -89,7 +89,7 @@ void main() {
       final echo = Echo(core: core, echoClient: echoClient);
       await expectLater(
         echo.unregister(),
-        throwsA(isInstanceOf<ArgumentError>()),
+        throwsA(isA<ArgumentError>()),
       );
 
       verify(core.projectId).called(1);
