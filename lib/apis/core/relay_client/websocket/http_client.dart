@@ -1,5 +1,5 @@
 import 'package:http/http.dart' as http;
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_http_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/i_http_client.dart';
 
 class HttpWrapper extends IHttpClient {
   const HttpWrapper();

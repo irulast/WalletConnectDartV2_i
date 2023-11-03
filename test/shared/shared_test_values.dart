@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_models.dart';
-import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_models.dart';
+import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 final TEST_RELAY_URL =
     Platform.environment['RELAY_ENDPOINT'] ?? 'wss://relay.walletconnect.com';

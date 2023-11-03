@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:test/test.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/i_json_rpc_history.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/i_pairing_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/json_rpc_history.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/pairing_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/memory_store.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/walletconnect_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/i_json_rpc_history.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/i_pairing_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/json_rpc_history.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/pairing_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/pairing_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/memory_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/constants.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/walletconnect_utils.dart';
 
 void main() {
   group('Store', () {

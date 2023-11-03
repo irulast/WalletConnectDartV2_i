@@ -4,9 +4,9 @@ import 'package:convert/convert.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:pointycastle/digests/keccak.dart';
-import 'package:walletconnect_flutter_v2/apis/auth_api/models/auth_client_models.dart';
-import 'package:walletconnect_flutter_v2/apis/auth_api/utils/auth_constants.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/json_rpc_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/models/auth_client_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/utils/auth_constants.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/json_rpc_utils.dart';
 import 'package:web3dart/crypto.dart' as crypto;
 
 class AuthSignature {

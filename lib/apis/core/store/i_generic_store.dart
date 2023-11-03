@@ -1,6 +1,6 @@
 import 'package:event/event.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/store_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/store_models.dart';
 
 abstract class IGenericStore<T> {
   abstract final String version;

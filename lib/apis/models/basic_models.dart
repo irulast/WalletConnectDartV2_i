@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/pairing_models.dart';
 
 part 'basic_models.g.dart';
 part 'basic_models.freezed.dart';

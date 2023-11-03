@@ -1,5 +1,5 @@
-import 'package:walletconnect_flutter_v2/apis/auth_api/utils/auth_constants.dart';
-import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/utils/auth_constants.dart';
+import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 class AuthApiValidators {
   static bool isValidRequestExpiry(int expiry) {

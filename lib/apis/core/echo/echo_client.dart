@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo_client.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/models/echo_body.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/models/echo_response.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_http_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/i_echo_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/models/echo_body.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/models/echo_response.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/i_http_client.dart';
 
 class EchoClient implements IEchoClient {
   static const headers = {'Content-Type': 'application/json'};

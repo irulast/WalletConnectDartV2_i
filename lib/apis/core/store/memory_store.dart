@@ -1,7 +1,6 @@
-
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/errors.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/constants.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/errors.dart';
 
 class MemoryStore implements IStore<Map<String, dynamic>> {
   bool _initialized = false;
