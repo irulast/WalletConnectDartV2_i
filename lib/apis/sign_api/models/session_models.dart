@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client_models.dart';
-import 'package:walletconnect_flutter_v2/apis/models/basic_models.dart';
-import 'package:walletconnect_flutter_v2/apis/sign_api/models/proposal_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/models/basic_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/models/proposal_models.dart';
 
 part 'session_models.g.dart';
 part 'session_models.freezed.dart';

@@ -1,7 +1,7 @@
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
 
-import 'package:walletconnect_flutter_v2/apis/sign_api/i_sessions.dart';
-import 'package:walletconnect_flutter_v2/apis/sign_api/models/session_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/i_sessions.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/models/session_models.dart';
 
 class Sessions extends GenericStore<SessionData> implements ISessions {
   Sessions({

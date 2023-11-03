@@ -2,13 +2,12 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:eth_sig_util/eth_sig_util.dart';
-import 'package:logger/logger.dart';
 import 'package:test/test.dart';
-import 'package:walletconnect_flutter_v2/apis/auth_api/auth_engine.dart';
-import 'package:walletconnect_flutter_v2/apis/auth_api/i_auth_engine_app.dart';
-import 'package:walletconnect_flutter_v2/apis/auth_api/i_auth_engine_wallet.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
-import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/auth_engine.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/i_auth_engine_app.dart';
+import 'package:walletconnect_dart_v2_i/apis/auth_api/i_auth_engine_wallet.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 import '../shared/shared_test_utils.dart';
 import '../shared/shared_test_values.dart';

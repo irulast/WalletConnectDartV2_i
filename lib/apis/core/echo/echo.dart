@@ -1,6 +1,6 @@
-import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo_client.dart';
-import 'package:walletconnect_flutter_v2/apis/core/i_core.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/i_echo.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/i_echo_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart';
 
 class Echo implements IEcho {
   static const SUCCESS_STATUS = 'SUCCESS';

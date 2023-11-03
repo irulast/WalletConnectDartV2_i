@@ -1,4 +1,4 @@
-import 'package:walletconnect_flutter_v2/apis/core/echo/models/echo_response.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/models/echo_response.dart';
 
 abstract class IEchoClient {
   Future<EchoResponse> register({

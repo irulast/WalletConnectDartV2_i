@@ -1,6 +1,6 @@
 # Overview
 
-A pure dart fork of WalletConnect/WalletConnectFlutterV2
+A pure dart fork of [WalletConnect/WalletConnectFlutterV2](https://github.com/WalletConnect/WalletConnectFlutterV2/)
 
 Original work for this library is attributed to [Eucalyptus Labs](https://eucalyptuslabs.com/) and Sterling Long for [Koala Wallet](https://koalawallet.io/), a wallet built for the Kadena blockchain.
 

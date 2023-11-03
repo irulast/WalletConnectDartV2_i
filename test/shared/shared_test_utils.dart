@@ -3,19 +3,19 @@
 import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:walletconnect_flutter_v2/apis/core/core.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_utils.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto.dart';
-import 'package:walletconnect_flutter_v2/apis/core/i_core.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/http_client.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/websocket_handler.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/walletconnect_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/core.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/i_crypto.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/http_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/websocket_handler.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/constants.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/walletconnect_utils.dart';
 
 import 'shared_test_utils.mocks.dart';
 
