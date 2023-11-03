@@ -3,9 +3,9 @@ import 'dart:typed_data';
 
 import 'package:convert/convert.dart';
 import 'package:pointycastle/digests/sha256.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/store_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/store_models.dart';
 
 class MessageTracker extends GenericStore<Map<String, String>>
     implements IMessageTracker {

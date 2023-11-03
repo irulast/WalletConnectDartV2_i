@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:event/event.dart';
-import 'package:walletconnect_flutter_v2/apis/core/i_core.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/json_rpc_utils.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_message_tracker.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_relay_client.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/json_rpc_2/src/parameters.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/json_rpc_2/src/peer.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/i_websocket_handler.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/websocket_handler.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/models/basic_models.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/constants.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/errors.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/walletconnect_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/json_rpc_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_message_tracker.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_relay_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/json_rpc_2/src/parameters.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/json_rpc_2/src/peer.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/i_websocket_handler.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/websocket_handler.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/models/basic_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/constants.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/errors.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/walletconnect_utils.dart';
 
 class RelayClient implements IRelayClient {
   static const JSON_RPC_PUBLISH = 'publish';

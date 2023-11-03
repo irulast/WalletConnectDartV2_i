@@ -3,17 +3,16 @@ import 'dart:convert';
 import 'package:convert/convert.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_utils.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto.dart';
-import 'package:walletconnect_flutter_v2/apis/models/basic_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_utils.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/i_crypto.dart';
+import 'package:walletconnect_dart_v2_i/apis/models/basic_models.dart';
 
 import '../shared/shared_test_utils.dart';
 import '../shared/shared_test_utils.mocks.dart';
 import '../shared/shared_test_values.dart';
 
 void main() {
-
   final testMessage = jsonEncode({
     'id': 1,
     'jsonrpc': '2.0',

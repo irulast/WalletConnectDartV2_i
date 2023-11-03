@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:test/test.dart';
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/relay_client_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/memory_store.dart';
-import 'package:walletconnect_flutter_v2/apis/sign_api/i_sessions.dart';
-import 'package:walletconnect_flutter_v2/apis/sign_api/models/session_models.dart';
-import 'package:walletconnect_flutter_v2/apis/sign_api/sessions.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/memory_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/i_sessions.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/models/session_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/sign_api/sessions.dart';
 
 import '../auth_api/utils/engine_constants.dart';
 

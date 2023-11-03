@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:event/event.dart';
-import 'package:walletconnect_flutter_v2/apis/core/heartbit/i_heartbeat.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/heartbit/i_heartbeat.dart';
 
 class HeartBeat implements IHeartBeat {
   Timer? _heartbeatTimer;

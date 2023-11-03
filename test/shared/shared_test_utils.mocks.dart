@@ -10,38 +10,37 @@ import 'package:event/event.dart' as _i8;
 import 'package:http/http.dart' as _i9;
 import 'package:logger/logger.dart' as _i16;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:walletconnect_flutter_v2/apis/core/core.dart' as _i24;
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto.dart' as _i20;
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_models.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/core.dart' as _i24;
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto.dart' as _i20;
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_models.dart'
     as _i2;
-import 'package:walletconnect_flutter_v2/apis/core/crypto/crypto_utils.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/crypto_utils.dart'
     as _i17;
-import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto.dart'
-    as _i10;
-import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto_utils.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/i_crypto.dart' as _i10;
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/i_crypto_utils.dart'
     as _i5;
-import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo.dart' as _i14;
-import 'package:walletconnect_flutter_v2/apis/core/heartbit/i_heartbeat.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/echo/i_echo.dart' as _i14;
+import 'package:walletconnect_dart_v2_i/apis/core/heartbit/i_heartbeat.dart'
     as _i15;
-import 'package:walletconnect_flutter_v2/apis/core/i_core.dart' as _i3;
-import 'package:walletconnect_flutter_v2/apis/core/pairing/i_expirer.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart' as _i3;
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/i_expirer.dart'
     as _i12;
-import 'package:walletconnect_flutter_v2/apis/core/pairing/i_pairing.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/i_pairing.dart'
     as _i13;
-import 'package:walletconnect_flutter_v2/apis/core/relay_auth/i_relay_auth.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/relay_auth/i_relay_auth.dart'
     as _i6;
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/i_relay_client.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/i_relay_client.dart'
     as _i11;
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/message_tracker.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/message_tracker.dart'
     as _i21;
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/http_client.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/http_client.dart'
     as _i23;
-import 'package:walletconnect_flutter_v2/apis/core/relay_client/websocket/websocket_handler.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/relay_client/websocket/websocket_handler.dart'
     as _i25;
-import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_generic_store.dart'
     as _i4;
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart' as _i7;
-import 'package:walletconnect_flutter_v2/apis/core/store/store_models.dart'
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart' as _i7;
+import 'package:walletconnect_dart_v2_i/apis/core/store/store_models.dart'
     as _i22;
 
 // ignore_for_file: type=lint

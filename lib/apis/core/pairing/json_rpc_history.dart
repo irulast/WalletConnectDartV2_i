@@ -1,6 +1,6 @@
-import 'package:walletconnect_flutter_v2/apis/core/pairing/i_json_rpc_history.dart';
-import 'package:walletconnect_flutter_v2/apis/core/pairing/utils/pairing_models.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/i_json_rpc_history.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/pairing/utils/pairing_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/generic_store.dart';
 
 class JsonRpcHistory extends GenericStore<JsonRpcRecord>
     implements IJsonRpcHistory {

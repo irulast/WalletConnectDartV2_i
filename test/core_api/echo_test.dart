@@ -1,11 +1,11 @@
 import 'package:http/http.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
-import 'package:walletconnect_flutter_v2/apis/core/crypto/i_crypto.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/echo.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/echo_client.dart';
-import 'package:walletconnect_flutter_v2/apis/core/echo/i_echo_client.dart';
-import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/crypto/i_crypto.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/echo.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/echo_client.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/echo/i_echo_client.dart';
+import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 import '../shared/shared_test_utils.mocks.dart';
 

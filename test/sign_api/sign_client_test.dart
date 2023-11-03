@@ -1,5 +1,5 @@
 import 'package:logger/logger.dart';
-import 'package:walletconnect_flutter_v2/walletconnect_flutter_v2.dart';
+import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 
 import '../shared/shared_test_utils.dart';
 import '../shared/shared_test_values.dart';

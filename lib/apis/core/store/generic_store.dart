@@ -1,9 +1,9 @@
 import 'package:event/event.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_generic_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/i_store.dart';
-import 'package:walletconnect_flutter_v2/apis/core/store/store_models.dart';
-import 'package:walletconnect_flutter_v2/apis/utils/errors.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_generic_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/i_store.dart';
+import 'package:walletconnect_dart_v2_i/apis/core/store/store_models.dart';
+import 'package:walletconnect_dart_v2_i/apis/utils/errors.dart';
 
 class GenericStore<T> implements IGenericStore<T> {
   @override
