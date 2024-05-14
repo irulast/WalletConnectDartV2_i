@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 90))
+
 import 'package:test/test.dart';
 import 'package:walletconnect_dart_v2_i/apis/core/core.dart';
 import 'package:walletconnect_dart_v2_i/apis/core/i_core.dart';

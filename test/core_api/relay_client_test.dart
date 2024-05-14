@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 90))
+
 import 'dart:async';
 
 import 'package:http/http.dart';

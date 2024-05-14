@@ -4,7 +4,7 @@ version: 2.1.8
 repository: https://github.com/irulast/WalletConnectDartV2_i
 
 environment:
-  sdk: '>=2.17.0 <4.0.0'
+  sdk: '>=3.3.4 <3.4.0'
 
 dependencies:
   web_socket_channel: ^2.4.5
@@ -16,7 +16,6 @@ dependencies:
   x25519: ^0.1.1
   bs58: ^1.0.2
   ed25519_edwards: ^0.3.1
-  # json_rpc_2: ^3.0.2
   event: ^2.1.2
   stream_channel: ^2.1.0
   universal_io: ^2.0.4

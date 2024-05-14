@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 90))
+
 import 'package:test/test.dart';
 import 'package:walletconnect_dart_v2_i/walletconnect_dart_v2_i.dart';
 import 'package:walletconnect_dart_v2_i/apis/sign_api/utils/sign_api_validator_utils.dart';

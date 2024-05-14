@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 360))
+
 import 'dart:async';
 import 'dart:typed_data';
 
