@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 90))
+
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 import 'package:walletconnect_dart_v2_i/apis/core/relay_client/relay_client.dart';

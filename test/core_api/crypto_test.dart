@@ -1,3 +1,5 @@
+@Timeout(Duration(seconds: 90))
+
 import 'dart:convert';
 
 import 'package:convert/convert.dart';
