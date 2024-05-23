@@ -1,6 +1,6 @@
 name: walletconnect_dart_v2_i
 description: This repository contains implementation of WalletConnect v2 protocols for Dart applications, adapted from the official implementation WalletConnectFlutterV2.
-version: 2.1.8
+version: 2.2.0
 repository: https://github.com/irulast/WalletConnectDartV2_i
 
 environment:

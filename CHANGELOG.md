@@ -1,3 +1,9 @@
+# Wallet Connect v2
+
+## 2.2.0
+
+- Updated to latest version of Dart.
+
 ## 2.1.8
 
 - Minor changes.
