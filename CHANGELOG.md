@@ -1,3 +1,7 @@
+## 2.1.9
+
+- Version bump.
+
 ## 2.1.8
 
 - Minor changes.
